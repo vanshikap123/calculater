@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: black;
+            cursor: pointer;
+        }
+        
+        .container {
+            width: max-content;
+            height: max-content;
+            border: 2px solid rgb(41, 40, 40);
+            background-color: transparent;
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(113, 115, 119, 0.5);
+            cursor: pointer;
+        }
+        
+        .grid {
+            width: 340px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            height: 400px;
+        }
+        
+        #input {
+            height: 100px;
+            width: 340px;
+            padding: 10px 25px;
+            text-align: right;
+            font-size: 20px;
+            background-color: transparent;
+            box-shadow: 0px 0px 15px rgba(113, 115, 119, 0.2);
+            margin-bottom: 10px;
+            border: none;
+            color: aliceblue;
+            cursor: pointer;
+        }
+        
+        button {
+            border: none;
+            width: 60px;
+            height: 60px;
+            background-color: transparent;
+            border-radius: 50%;
+            color: aliceblue;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        #g {
+            background-color: rgb(3, 150, 101);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center; margin-bottom: 20px;">Calculator application</h1>
+    <div class="container">
+        <input id="input" type="text" placeholder="0">
+        <div>
+            <button id="g" onclick="erase()">C</button>
+            <button onclick="calculate('*')">X</button>
+            <button onclick="calculate('/')">/</button>
+            <button onclick="calculate('9')">9</button>
+        </div>
+        <div>
+            <button onclick="calculate('8')">8</button>
+            <button onclick="calculate('7')">7</button>
+            <button onclick="calculate('6')">6</button>
+            <button onclick="calculate('5')">5</button>
+        </div>
+        <div>
+            <button onclick="calculate('4')">4</button>
+            <button onclick="calculate('3')">3</button>
+            <button onclick="calculate('2')">2</button>
+            <button onclick="calculate('1')">1</button>
+        </div>
+        <div>
+            <button onclick="calculate('0')">0</button>
+
+            <button onclick="calculate('.')">.</button>
+            <button onclick="calculate('%')">%</button>
+            <button onclick="calculate('-')">-</button>
+        </div>
+        <div> <button onclick="calculate('+')">+</button>
+            <button onclick="total()">=</button></div>
+    </div>
+
+
+    <script>
+        let str = "";
+        let input = document.getElementById('input')
+
+        function calculate(num) {
+            // console.log(num)
+            str = str + num
+            console.log(str)
+            input.value = str
+        }
+
+        function erase() {
+            str = ""
+            input.value = ""
+        }
+
+        function total() {
+            let ans = eval(str)
+            console.log(ans)
+            input.value = ans
+        }
+    </script>
+</body>
+
+</html>
